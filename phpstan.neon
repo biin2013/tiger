@@ -1,0 +1,9 @@
+parameters:
+
+    level: 6
+
+    paths:
+        - src/
+
+    ignoreErrors:
+        - '#separator of function explode expects non-empty-string, string given#'
