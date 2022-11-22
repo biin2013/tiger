@@ -16,7 +16,7 @@ class Response
      */
     private static function format(int $code, string $message = 'success', array $data = []): array
     {
-        $scope = request()->header('scope', 'common');
+        $scope = request()->header('error-scope', 'common');
         return compact('scope', 'code', 'message', 'data');
     }
 

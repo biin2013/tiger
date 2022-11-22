@@ -15,7 +15,7 @@ class ErrorScope
      */
     public function handle(Request $request, Closure $next, string $scope = 'common'): mixed
     {
-        $request->headers->set('scope', $scope);
+        $request->headers->set('error-scope', $scope);
 
         return $next($request);
     }
