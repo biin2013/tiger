@@ -31,23 +31,23 @@ class ExceptionHandler extends Handler
                 $status = 403;
                 $message = 'permission denied';
                 break;
-            case $e instanceof ValidationException:
-            case $e instanceof RuntimeException:
-                $code = $e->getCode();
-                $status = $e->getStatus();
-                $message = $e->getMessage();
-                $data = $e->getData();
+            case $e instanceof MethodNotAllowedException:
+            case $e instanceof NotFoundHttpException:
+                $code = 404;
+                $status = 404;
+                $message = 'not found';
                 break;
             case $e instanceof ThrottleRequestsException:
                 $code = 429;
                 $status = 429;
                 $message = 'to many requests';
                 break;
-            case $e instanceof MethodNotAllowedException:
-            case $e instanceof NotFoundHttpException:
-                $code = 404;
-                $status = 404;
-                $message = 'not found';
+            case $e instanceof ValidationException:
+            case $e instanceof RuntimeException:
+                $code = $e->getCode();
+                $status = $e->getStatus();
+                $message = $e->getMessage();
+                $data = $e->getData();
                 break;
             default:
                 $message = $e->getMessage();
