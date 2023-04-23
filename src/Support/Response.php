@@ -11,7 +11,7 @@ class Response
      *
      * @param int $code
      * @param string $message
-     * @param array<mixed> $data
+     * @param array $data
      * @return array<string, mixed>
      */
     private static function format(int $code, string $message = 'success', array $data = []): array
@@ -23,9 +23,9 @@ class Response
     /**
      * json response
      *
-     * @param array<mixed> $data
+     * @param array $data
      * @param integer $status
-     * @param array<mixed> $headers
+     * @param array $headers
      * @param int $options
      * @return JsonResponse
      */
@@ -44,9 +44,9 @@ class Response
      *
      * @param int $code
      * @param string $message
-     * @param array<mixed> $data
+     * @param array $data
      * @param integer $status
-     * @param array<mixed> $headers
+     * @param array $headers
      * @param int $options
      * @return JsonResponse
      */
@@ -65,11 +65,11 @@ class Response
     /**
      * success response
      *
-     * @param array<mixed> $data
+     * @param array $data
      * @param int $code
      * @param string $message
      * @param integer $status
-     * @param array<mixed> $headers
+     * @param array $headers
      * @param int $options
      * @return JsonResponse
      */
@@ -97,9 +97,9 @@ class Response
      *
      * @param int $code
      * @param string $message
-     * @param array<mixed> $data
+     * @param array $data
      * @param integer $status
-     * @param array<mixed> $headers
+     * @param array $headers
      * @param int $options
      * @return JsonResponse
      */

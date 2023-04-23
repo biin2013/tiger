@@ -17,7 +17,7 @@ abstract class Validation
     protected ?array $exceptRules = null;
 
     /**
-     * @return array<string, array<mixed>>
+     * @return array<string, array>
      */
     abstract protected function rules(): array;
 
@@ -50,7 +50,7 @@ abstract class Validation
     }
 
     /**
-     * @return array<string, array<mixed>>
+     * @return array<string, array>
      */
     protected function allRules(): array
     {
@@ -60,7 +60,7 @@ abstract class Validation
     }
 
     /**
-     * @return array<string, array<mixed>>
+     * @return array<string, array>
      */
     public function getRules(): array
     {
@@ -99,7 +99,7 @@ abstract class Validation
 
     /**
      * @param array<string, mixed> $data
-     * @param array<mixed>|null $routeParams
+     * @param array|null $routeParams
      * @param Validator $validator
      */
     public function validated(array $data, ?array $routeParams, Validator $validator): void

@@ -24,7 +24,7 @@ abstract class Controller extends BaseController
      */
     protected array $requestData;
     /**
-     * @var array<mixed>|null
+     * @var array|null
      */
     protected ?array $requestRouteParams;
     protected bool $validate = true;
@@ -84,7 +84,7 @@ abstract class Controller extends BaseController
     }
 
     /**
-     * @return array<mixed>|null
+     * @return array|null
      */
     protected function getRouteParameters(): ?array
     {

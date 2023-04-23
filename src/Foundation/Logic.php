@@ -15,14 +15,14 @@ abstract class Logic
     protected bool $dbTransaction = true;
 
     /**
-     * @param array<mixed>|null $routeParams
+     * @param array|null $routeParams
      * @param array<string, mixed> $data
-     * @return array<mixed>|JsonResponse|Arrayable<int|string, mixed>
+     * @return array|JsonResponse|Arrayable<int|string, mixed>
      */
     abstract protected function run(?array $routeParams, array $data): array|JsonResponse|Arrayable;
 
     /**
-     * @param array<mixed>|null $routeParams
+     * @param array|null $routeParams
      * @param array<string, mixed> $data
      * @param bool $validate
      * @param bool|null $dbTransaction

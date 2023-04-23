@@ -7,10 +7,10 @@ use Illuminate\Support\Str;
 class Helper
 {
     /**
-     * @param array<mixed> $data
+     * @param array $data
      * @param int $currentDeep
      * @param int $deep
-     * @return array<mixed>
+     * @return array
      */
     public static function arrayKeyToCamel(array $data, int $currentDeep = 1, int $deep = PHP_INT_MAX): array
     {

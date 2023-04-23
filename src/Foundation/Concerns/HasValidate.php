@@ -12,7 +12,7 @@ trait HasValidate
 
     /**
      * @param array<string, mixed> $data
-     * @param array<mixed>|null $routeParams
+     * @param array|null $routeParams
      * @throws ValidationException
      * @throws Exception
      */
