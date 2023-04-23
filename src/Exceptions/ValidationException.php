@@ -19,7 +19,7 @@ class ValidationException extends Exception
      */
     public function __construct(
         int       $code,
-        string    $message = '',
+        string    $message = 'data validate failed',
         array     $data = [],
         int       $status = 422,
         Throwable $previous = null

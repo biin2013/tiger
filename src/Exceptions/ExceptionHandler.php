@@ -17,8 +17,8 @@ class ExceptionHandler extends Handler
     public function render($request, Throwable $e): JsonResponse
     {
         $data = [];
-        $code = 500;
-        $status = 500;
+        $code = 1;
+        $status = 200;
 
         switch ($e) {
             case $e instanceof AuthenticationException:

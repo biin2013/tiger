@@ -19,7 +19,7 @@ class RuntimeException extends Exception
      */
     public function __construct(
         int       $code,
-        string    $message = '',
+        string    $message = 'error',
         array     $data = [],
         int       $status = 400,
         Throwable $previous = null
