@@ -18,7 +18,7 @@ class ExceptionHandler extends Handler
     {
         $data = [];
         $code = 1;
-        $status = 200;
+        $status = 500;
 
         switch ($e) {
             case $e instanceof AuthenticationException:
