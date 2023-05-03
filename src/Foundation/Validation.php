@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 
 abstract class Validation
 {
-    protected bool $appendDefaultRules = true;
+    protected bool $appendDefaultRules = false;
     /**
      * @var array<string>|null
      */
@@ -29,7 +29,7 @@ abstract class Validation
     /**
      * @return string[][]
      */
-    private function defaultRules(): array
+    protected function defaultRules(): array
     {
         return [
             'seq' => ['bail', 'integer', 'between:0,255'],
@@ -40,7 +40,7 @@ abstract class Validation
     /**
      * @return int[]
      */
-    private function defaultCodes(): array
+    protected function defaultCodes(): array
     {
         return [
             'seq.integer' => 1101,
@@ -95,6 +95,45 @@ abstract class Validation
         return $this->appendDefaultRules
             ? array_merge($this->defaultCodes(), $this->codes())
             : $this->codes();
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function defaultData(): array
+    {
+        return [
+            'seq.between' => ['min' => 0, 'max' => 255],
+            'brief.max' => ['max' => 255]
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function data(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function allData(): array
+    {
+        return $this->appendDefaultRules
+            ? array_merge($this->defaultData(), $this->data())
+            : $this->data();
+    }
+
+    /**
+     * @param string $field
+     * @param string $rule
+     * @return array<string, mixed>
+     */
+    public function resolveData(string $field, string $rule): array
+    {
+        return $this->allData()[$field . '.' . $rule] ?? [];
     }
 
     /**

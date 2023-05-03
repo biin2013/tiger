@@ -26,7 +26,11 @@ trait HasValidate
             $field = array_key_first($failed);
             $key = lcfirst(array_key_first($failed[$field]));
 
-            throw new ValidationException($validation->resolveCode($field, $key));
+            throw new ValidationException(
+                $validation->resolveCode($field, $key),
+                'data data validate failed',
+                $validation->resolveData($field, $key)
+            );
         }
 
         $validation->validated($data, $routeParams, $validator);
