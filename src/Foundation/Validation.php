@@ -116,8 +116,8 @@ abstract class Validation
     protected function defaultData(): array
     {
         return [
-            'seq.between' => ['min' => 0, 'max' => 255],
-            'brief.max' => ['max' => 255]
+            'seq' => ['between' => ['min' => 0, 'max' => 255]],
+            'brief' => ['max' => 255]
         ];
     }
 
@@ -134,7 +134,7 @@ abstract class Validation
      */
     private function allData(): array
     {
-        return array_merge($this->defaultData(), $this->data());
+        return array_merge_recursive($this->defaultData(), $this->data());
     }
 
     /**
@@ -144,7 +144,7 @@ abstract class Validation
      */
     public function resolveData(string $field, string $rule): array
     {
-        return $this->data[$field . '.' . $rule] ?? [];
+        return $this->data[$field][$rule] ?? [];
     }
 
     /**
