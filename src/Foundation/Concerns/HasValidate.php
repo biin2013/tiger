@@ -19,7 +19,13 @@ trait HasValidate
     protected function validate(array $data, ?array $routeParams = null): void
     {
         $validation = $this->getValidateHandler();
-        $validator = BaseValidator::make($data, $validation->getRules());
+        $messages = $validation->getMessages();
+        $validator = BaseValidator::make(
+            $data,
+            $validation->getRules(),
+            $messages,
+            $validation->getAttributes()
+        );
 
         if ($validator->fails()) {
             $failed = $validator->failed();
@@ -28,7 +34,7 @@ trait HasValidate
 
             throw new ValidationException(
                 $validation->resolveCode($field, $key),
-                'data data validate failed',
+                $messages[$field][$key] ?? $validator->errors()->first(),
                 $validation->resolveData($field, $key)
             );
         }

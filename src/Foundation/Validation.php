@@ -51,14 +51,18 @@ abstract class Validation
     }
 
     /**
-     * @return int[]
+     * @return array<string, mixed>
      */
     protected function defaultCodes(): array
     {
         return [
-            'seq.integer' => 1101,
-            'seq.between' => 1102,
-            'brief.max' => 1103
+            'seq' => [
+                'integer' => 1101,
+                'between' => 1102
+            ],
+            'brief' => [
+                'max' => 1103
+            ]
         ];
     }
 
@@ -97,16 +101,16 @@ abstract class Validation
      */
     public function resolveCode(string $field, string $rule): int
     {
-        return $this->allCodes()[$field . '.' . $rule] ?? 10000;
+        return $this->allCodes()[$field][$rule] ?? 10000;
     }
 
     /**
-     * @return array<int>
+     * @return array<string, mixed>
      */
     private function allCodes(): array
     {
         return $this->appendDefaultRules
-            ? array_merge($this->defaultCodes(), $this->codes())
+            ? array_merge_recursive($this->defaultCodes(), $this->codes())
             : $this->codes();
     }
 
@@ -144,7 +148,41 @@ abstract class Validation
      */
     public function resolveData(string $field, string $rule): array
     {
-        return $this->data[$field][$rule] ?? [];
+        $data = $this->data[$field][$rule] ?? null;
+
+        return $data ? [$rule => $data] : [];
+    }
+
+    /**
+     * @return mixed[]
+     */
+    protected function messages(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getMessages(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return mixed[]
+     */
+    protected function attributes(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getAttributes(): array
+    {
+        return [];
     }
 
     /**
