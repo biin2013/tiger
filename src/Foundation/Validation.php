@@ -6,6 +6,9 @@ use Illuminate\Contracts\Validation\Validator;
 
 abstract class Validation
 {
+    /**
+     * @var bool
+     */
     protected bool $appendDefaultRules = false;
     /**
      * @var array<string>|null
@@ -15,6 +18,16 @@ abstract class Validation
      * @var array<string>|null
      */
     protected ?array $exceptRules = null;
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $data = [];
+
+    public function __construct()
+    {
+        $this->data = $this->allData();
+    }
 
     /**
      * @return array<string, array<mixed>>
@@ -117,13 +130,11 @@ abstract class Validation
     }
 
     /**
-     * @return mixed[]
+     * @return array<string, mixed>
      */
     private function allData(): array
     {
-        return $this->appendDefaultRules
-            ? array_merge($this->defaultData(), $this->data())
-            : $this->data();
+        return array_merge($this->defaultData(), $this->data());
     }
 
     /**
@@ -133,7 +144,7 @@ abstract class Validation
      */
     public function resolveData(string $field, string $rule): array
     {
-        return $this->allData()[$field . '.' . $rule] ?? [];
+        return $this->data[$field . '.' . $rule] ?? [];
     }
 
     /**
