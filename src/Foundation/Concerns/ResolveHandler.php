@@ -76,7 +76,7 @@ trait ResolveHandler
         $paths = $this->getCurrentHandlerRoutePath($path, $typePlural);
         $routeName = explode('.', request()->route()->getName());
         $paths = array_reduce($routeName, function ($c, $v) {
-            array_push($c, Str::studly($v));
+            array_push($c, Str::singular(Str::studly($v)));
             return $c;
         }, $paths);
 
@@ -109,7 +109,7 @@ trait ResolveHandler
         array_push($paths, 'Foundations');
         $routeName = explode('.', request()->route()->getName());
         $action = array_pop($routeName);
-        array_push($paths, Str::studly($action));
+        array_push($paths, Str::singular(Str::studly($action)));
 
         return implode('\\', $paths) . $type;
     }
