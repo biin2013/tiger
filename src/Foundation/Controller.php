@@ -2,9 +2,9 @@
 
 namespace Biin2013\Tiger\Foundation;
 
+use Biin2013\PhpUtils\Arr\ArrFormat;
 use Biin2013\Tiger\Exceptions\ExceptionHandler;
 use Biin2013\Tiger\Foundation\Concerns\HasValidate;
-use Biin2013\Tiger\Support\Helper;
 use Biin2013\Tiger\Support\Response;
 use Exception;
 use Illuminate\Contracts\Support\Arrayable;
@@ -67,7 +67,7 @@ abstract class Controller extends BaseController
                 throw new Exception('logic response data type[' . gettype($response) . '] invalid');
             }
 
-            return Response::success(Helper::arrayKeyToCamel($response));
+            return Response::success(ArrFormat::arrayKeyToCamel($response));
         } catch (Throwable $e) {
             $handler = app(ExceptionHandler::class);
             $handler->report($e);

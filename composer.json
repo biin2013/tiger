@@ -15,6 +15,7 @@
   },
   "require": {
     "php": "^8.1",
+    "biin2013/php-utils": "^1.0",
     "laravel/framework": "^10.7",
     "laravel/sanctum": "^3.2"
   },
