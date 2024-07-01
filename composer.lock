@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2152810c47c91e0989b3bf9274a853e",
+    "content-hash": "ee624c3f5efb151420aca701a415c0cb",
     "packages": [
         {
             "name": "biin2013/php-utils",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/biin2013/php-utils.git",
-                "reference": "97872ec3aab2139410febf5ca743c5accca22c59"
+                "reference": "83599f984c9084dd33266f68eb46f9dfd236af0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biin2013/php-utils/zipball/97872ec3aab2139410febf5ca743c5accca22c59",
-                "reference": "97872ec3aab2139410febf5ca743c5accca22c59",
+                "url": "https://api.github.com/repos/biin2013/php-utils/zipball/83599f984c9084dd33266f68eb46f9dfd236af0c",
+                "reference": "83599f984c9084dd33266f68eb46f9dfd236af0c",
                 "shasum": ""
             },
             "require": {
@@ -43,9 +43,9 @@
             ],
             "support": {
                 "issues": "https://github.com/biin2013/php-utils/issues",
-                "source": "https://github.com/biin2013/php-utils/tree/1.0.0"
+                "source": "https://github.com/biin2013/php-utils/tree/1.0.1"
             },
-            "time": "2023-09-25T16:36:46+00:00"
+            "time": "2024-07-01T09:38:43+00:00"
         },
         {
             "name": "brick/math",
