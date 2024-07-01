@@ -1,0 +1,35 @@
+{
+  "name": "biin2013/tiger",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "biin2013",
+      "email": "chenbin_2010@sina.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Biin2013\\Tiger\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "biin2013/php-utils": "^1.0",
+    "laravel/framework": "^11.13"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9.1",
+    "phpstan/phpstan": "^1.11",
+    "phpunit/phpunit": "^11.2"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@php ./vendor/bin/testbench package:discover --ansi"
+    ],
+    "analyse": "vendor/bin/phpstan analyse"
+  }
+}
