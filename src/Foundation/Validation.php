@@ -35,7 +35,7 @@ abstract class Validation
     abstract protected function rules(): array;
 
     /**
-     * @return array<int>
+     * @return array<string, array<mixed>>
      */
     abstract protected function codes(): array;
 

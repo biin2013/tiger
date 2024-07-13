@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "biin2013/php-utils",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/biin2013/php-utils.git",
-                "reference": "83599f984c9084dd33266f68eb46f9dfd236af0c"
+                "reference": "627fc111253d2a5b110bb453c1946cd40d762956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/biin2013/php-utils/zipball/83599f984c9084dd33266f68eb46f9dfd236af0c",
-                "reference": "83599f984c9084dd33266f68eb46f9dfd236af0c",
+                "url": "https://api.github.com/repos/biin2013/php-utils/zipball/627fc111253d2a5b110bb453c1946cd40d762956",
+                "reference": "627fc111253d2a5b110bb453c1946cd40d762956",
                 "shasum": ""
             },
             "require": {
@@ -43,9 +43,9 @@
             ],
             "support": {
                 "issues": "https://github.com/biin2013/php-utils/issues",
-                "source": "https://github.com/biin2013/php-utils/tree/1.0.1"
+                "source": "https://github.com/biin2013/php-utils/tree/1.0.2"
             },
-            "time": "2024-07-01T09:38:43+00:00"
+            "time": "2024-07-13T13:37:37+00:00"
         },
         {
             "name": "brick/math",

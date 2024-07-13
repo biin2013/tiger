@@ -67,7 +67,7 @@ abstract class Controller extends BaseController
                 throw new Exception('logic response data type[' . gettype($response) . '] invalid');
             }
 
-            return Response::success(ArrFormat::arrayKeyToCamel($response));
+            return Response::success(ArrFormat::keyToCamel($response));
         } catch (Throwable $e) {
             $handler = app(ExceptionHandler::class);
             $handler->report($e);
